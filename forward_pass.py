@@ -38,3 +38,23 @@ print("New predictions:", pred)   # [0, 1, 1, 1]
 # Define the labels for the input set
 # Labels for an AND gate (True outputs for the input combinations)
 labels = np.array([0, 0, 0, 1])
+
+# Experiment with random weights and observe the results
+# Initialize the bias (you can keep it fixed or randomize it as well)
+# Set the number of experiments
+from sklearn.metrics import accuracy_score
+
+bias = -0.7
+num_experiments = 10
+
+for experiment in range(num_experiments):
+    weights = np.random.uniform(-1, 1, size=2)
+
+    pred = perceptron_forward_pass(input_set, weights, bias)
+
+    print(f"Experiment {experiment + 1}")
+    print("Weights:", weights)
+    print("Predictions:", pred)
+
+    accuracy = accuracy_score(labels, pred)
+    print(f"Accuracy: {accuracy * 100:.2f}%\n")
