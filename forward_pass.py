@@ -28,8 +28,13 @@ bias = -0.7                                              # Example bias
 pred = perceptron_forward_pass(input_set, weights, bias)
 print("Predictions:", pred)   # [0, 0, 0, 1]
 
-weights = np.array([1.0, 1.0])
-bias = -0.5   # ahora se comporta como una puerta OR
+# Experiment with other values for the weights and bias
+weights = np.array([1.0, 1.0]) # Modify the weights
+bias = -0.5   # Modify the bias
 
 pred = perceptron_forward_pass(input_set, weights, bias)
 print("New predictions:", pred)   # [0, 1, 1, 1]
+
+# Define the labels for the input set
+# Labels for an AND gate (True outputs for the input combinations)
+labels = np.array([0, 0, 0, 1])
