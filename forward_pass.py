@@ -18,3 +18,12 @@ def perceptron_forward_pass(input_set, weights, bias):
         z = linear(x, weights, bias)
         pred.append(step(z))
     return pred
+
+# Test the perceptron with sample inputs and weights
+# Example input and weight vectors
+input_set = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])  # 2-input binary combinations
+weights = np.array([0.5, 0.5])                           # Example weights
+bias = -0.7                                              # Example bias
+
+pred = perceptron_forward_pass(input_set, weights, bias)
+print("Predictions:", pred)   # [0, 0, 0, 1]
