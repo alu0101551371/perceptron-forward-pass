@@ -9,3 +9,12 @@ def linear(inputs, weights, bias):
 # The step function returns 1 if the input z is greater than or equal to 0, otherwise it returns 0
 def step(z):
     return 1 if z >= 0 else 0
+
+# Write the perceptron forward pass function
+# This function will take an array of inputs, a weight vector, and a bias, and return the prediction for each input
+def perceptron_forward_pass(input_set, weights, bias):
+    pred = []
+    for x in input_set:
+        z = linear(x, weights, bias)
+        pred.append(step(z))
+    return pred
