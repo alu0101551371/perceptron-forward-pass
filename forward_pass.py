@@ -58,3 +58,19 @@ for experiment in range(num_experiments):
 
     accuracy = accuracy_score(labels, pred)
     print(f"Accuracy: {accuracy * 100:.2f}%\n")
+
+import matplotlib.pyplot as plt
+
+weights = np.array([0.5, 0.5])
+bias = -0.7
+
+xx, yy = np.meshgrid(np.linspace(-0.5, 1.5, 100), np.linspace(-0.5, 1.5, 100))
+grid = np.c_[xx.ravel(), yy.ravel()]
+z = np.array(perceptron_forward_pass(grid, weights, bias)).reshape(xx.shape)
+
+plt.contourf(xx, yy, z, alpha=0.2)
+plt.scatter(input_set[:, 0], input_set[:, 1], c=labels, edgecolors='k')
+plt.xlabel("Input 1")
+plt.ylabel("Input 2")
+plt.title("Perceptron (AND gate)")
+plt.show()
